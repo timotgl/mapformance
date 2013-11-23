@@ -1,0 +1,12 @@
+{
+  "name": "mapformance",
+  "version": "0.0.1",
+  "author": "Timo Taglieber <mapformance@timotaglieber.de>",
+  "engines": {
+    "node": "0.10.x",
+    "npm":  "1.2.x"
+  },
+  "dependencies": {
+      "grunt-contrib-less": "0.8.2"
+  }
+}
