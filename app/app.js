@@ -1,0 +1,1 @@
+var mapformanceApp = angular.module('mapformanceApp', []);
