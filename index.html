@@ -1,13 +1,26 @@
 <!doctype html>
-<html ng-app>
-  <head>
-    <script src="bower_components/angular/angular.js"></script>
-    <script src="mapformance.js"></script>
-    <link rel="stylesheet" href="mapformance.css">
-  </head>
-  <body>
-    <h1>Mapformance</h1>
-    <div ng-controller="Map">
-    </div>
-  </body>
+<html ng-app="mapformanceApp">
+    <head>
+        <script src="bower_components/angular/angular.js"></script>
+        <script src="app/app.js"></script>
+        <script src="app/controllers/AddressController.js"></script>
+        <script src="app/controllers/MapController.js"></script>
+        <link rel="stylesheet" href="css/mapformance.css">
+    </head>
+    <body>
+        <h1>Mapformance</h1>
+        <p>{{ 'Hi, ' + 'stranger!' }}</p>
+        <div class="component" ng-controller="AddressController">
+            <h2>Address</h2>
+            <li ng-repeat="name in names">
+                {{ name }} is cool!
+            </li>
+        </div>
+        <div class="component" ng-controller="MapController">
+            <h2>Map</h2>
+            <li ng-repeat="name in names">
+                {{ name }} is cool!
+            </li>
+        </div>
+    </body>
 </html>
