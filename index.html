@@ -1,7 +1,10 @@
 <!doctype html>
-<html ng-app="mapformanceApp">
+<html id="rootElem"><!-- ng-app="mapformanceApp" -->
     <head>
         <script src="bower_components/angular/angular.js"></script>
+        <script src="bower_components/angular-ui-utils/modules/event/event.js"></script>
+        <script src="bower_components/angular-ui-map/src/map.js"></script>
+
         <script src="app/app.js"></script>
         <script src="app/controllers/AddressController.js"></script>
         <script src="app/controllers/MapController.js"></script>
@@ -9,18 +12,15 @@
     </head>
     <body>
         <h1>Mapformance</h1>
-        <p>{{ 'Hi, ' + 'stranger!' }}</p>
-        <div class="component" ng-controller="AddressController">
+        <div class="component" ng-controller="AddressController as address">
             <h2>Address</h2>
-            <li ng-repeat="name in names">
-                {{ name }} is cool!
-            </li>
+            Query: <input type="text" ng-model="address.query" required>
+            <button class="btn" ng-click="address.searchForAddress()">Search</button>
         </div>
-        <div class="component" ng-controller="MapController">
+        <div class="component" ng-controller="MapController as map">
             <h2>Map</h2>
-            <li ng-repeat="name in names">
-                {{ name }} is cool!
-            </li>
+            <div ui-map="googleMap" ui-options="mapOptions" class="map-canvas"></div>
         </div>
+        <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false&callback=onGoogleReady"></script>
     </body>
 </html>
