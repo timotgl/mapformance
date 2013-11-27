@@ -2,9 +2,6 @@
 <html id="rootElem"><!-- ng-app="mapformanceApp" -->
     <head>
         <script src="bower_components/angular/angular.js"></script>
-        <script src="bower_components/angular-ui-utils/modules/event/event.js"></script>
-        <script src="bower_components/angular-ui-map/src/map.js"></script>
-
         <script src="app/app.js"></script>
         <script src="app/controllers/AddressController.js"></script>
         <script src="app/controllers/MapController.js"></script>
@@ -19,7 +16,7 @@
         </div>
         <div class="component" ng-controller="MapController as map">
             <h2>Map</h2>
-            <div ui-map="googleMap" ui-options="mapOptions" class="map-canvas"></div>
+            <div id="googleMap" class="map-canvas"></div>
         </div>
         <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false&callback=onGoogleReady"></script>
     </body>
