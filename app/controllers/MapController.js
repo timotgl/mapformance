@@ -1,6 +1,6 @@
 mapformanceApp.controller('MapController', function ($scope, addMarkerService) {
     google.maps.visualRefresh = true;
-    this.map = new google.maps.Map(
+    var map = new google.maps.Map(
         document.getElementById('googleMap'),
         {
             zoom: 15,
@@ -19,8 +19,6 @@ mapformanceApp.controller('MapController', function ($scope, addMarkerService) {
             ),
             title:"Hello World!"
         });
-        
-        // TODO: $scope.map and this.map don't work to access the Map instance
-        marker.setMap($scope.map);
+        marker.setMap(map);
     });
 });
