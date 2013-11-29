@@ -1,25 +1,24 @@
 // Color definitions
-@addressBg: rgb(132,230,255);
-@addMarkerFailure: rgb(230, 20, 20);
-@addMarkerFailureBg: rgb(60, 0, 0);
+@widgetBg: rgb(22,54,65);
+@widgetText: rgb(173, 195, 206);
+@addMarkerFailure: rgb(230,20,20);
+@addMarkerFailureBg: rgb(60,0,0);
 
 section#address {
-    opacity: 0.7;
     position: fixed;
     left: 90px;
     z-index: 999;
-    background-color: @addressBg;
-
-    -webkit-border-bottom-left-radius: @borderRadius;
-    -moz-border-radius-bottomleft: @borderRadius;
-    border-bottom-left-radius: @borderRadius;
-    -webkit-border-bottom-right-radius: @borderRadius;
-    -moz-border-radius-bottomright: @borderRadius;
-    border-bottom-right-radius: @borderRadius;
+    background-color: @widgetBg;
 
     p#addressForm {
         margin: 0;
         padding: 10px;
+        
+        label#addressInputLabel {
+            color: @widgetText;
+            font-weight: 700;
+            margin-right: 6px;
+        }
 
         input#addressInput {
             width: 400px;
@@ -44,6 +43,11 @@ section#address {
     }
 }
 
-section#address:hover {
-    opacity: 1;
+section#address, p#markerStatus {
+    -webkit-border-bottom-left-radius: @borderRadius;
+    -moz-border-radius-bottomleft: @borderRadius;
+    border-bottom-left-radius: @borderRadius;
+    -webkit-border-bottom-right-radius: @borderRadius;
+    -moz-border-radius-bottomright: @borderRadius;
+    border-bottom-right-radius: @borderRadius;
 }

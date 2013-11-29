@@ -1,13 +1,15 @@
-@import "address.less";
-@import "list.less";
-@import "map.less";
+// Color definitions
+@pageBg: rgb(230, 230, 230);
+@widgetBg: rgb(22,54,65);
+@widgetText: rgb(173, 195, 206);
 
 // Use Google Web Font "Roboto"
 @import url(http://fonts.googleapis.com/css?family=Roboto:400,700);
 
-// Color definitions
-@text: rgb(20,20,20);
-@pageBg: rgb(230, 230, 230);
+// Import widget styles
+@import "address.less";
+@import "list.less";
+@import "map.less";
 
 // General styles
 @borderRadius: 5px;
@@ -17,9 +19,10 @@ html, body {
 }
 
 body {
-    color: @text;
+    color: @widgetText;
     background-color: @pageBg;
     font-family: 'Roboto', sans-serif;
     font-weight: 400;
+    font-size: 0.9em;
     margin: 0;
 }

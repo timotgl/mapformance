@@ -22,12 +22,12 @@
         <section id="list" ng-controller="MarkerListController">
             <p id="markerListForm" ng-if="total >= 2">
                 <button id="removeAllMarkers" ng-click="removeAllMarkers()">
-                    Remove all <span id="totalNumMarkers" ng-bind="total"></span> Markers
+                    Remove all (<span id="totalNumMarkers" ng-bind="total"></span>)
                 </button>
-                <button id="showAllMarkers" ng-click="showAllMarkers()">Show all markers</button>
+                <a id="showAllMarkers" ng-click="showAllMarkers()">Show all markers</a>
             </p>
-            <ul id="markerList" ng-repeat="address in markers" ng-if="total >= 1">
-                <li>
+            <ul id="markerList" ng-if="total >= 1">
+                <li ng-repeat="address in markers">
                     <button class="removeMarker" ng-click="removeMarker($index, address)">Remove</button>
                     <span class="markerAdress" ng-click="selectMarker(address)">{{ address }}</span>
                 </li>
