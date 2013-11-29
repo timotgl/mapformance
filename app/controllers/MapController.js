@@ -1,7 +1,8 @@
 mapformanceApp.controller('MapController', function ($scope, addMarkerService) {
     google.maps.visualRefresh = true;
+    var mapContainer = document.getElementById('googleMap');
     var map = new google.maps.Map(
-        document.getElementById('googleMap'),
+        mapContainer,
         {
             zoom: 15,
             center: new google.maps.LatLng(52.518108, 13.454538),
