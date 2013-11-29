@@ -17,7 +17,7 @@ mapformanceApp.controller('MapController', function ($scope, geoCoderService, $r
     /**
      * Add a marker to the map when an address search was successful.
      */
-    var addMarker = function () {
+    var addMarker = function (event) {
         // Don't create a marker for an already existing address.
         if (markers.hasOwnProperty(geoCoderService.query)) {
             return;
@@ -37,5 +37,20 @@ mapformanceApp.controller('MapController', function ($scope, geoCoderService, $r
         $rootScope.$broadcast('markerAdded');
     };
     
+    var removeMarker = function (event, address) {
+        var marker = markers[address];
+        marker.setMap(null);
+        delete markers[address];
+    };
+    
+    var removeAllMarkers = function (event) {
+        angular.forEach(markers, function(marker, address) {
+            marker.setMap(null);
+        });
+        markers = {};
+    };
+    
     $scope.$on('addressFound', addMarker);
+    $scope.$on('markerRemoved', removeMarker);
+    $scope.$on('allMarkersRemoved', removeAllMarkers);
 });

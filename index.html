@@ -29,7 +29,7 @@
             </p>
             <ul id="markerList" ng-repeat="address in markers" ng-if="total >= 1">
                 <li>
-                    <button class="removeMarker" ng-click="removeMarker($index)">Remove</button>
+                    <button class="removeMarker" ng-click="removeMarker($index, address)">Remove</button>
                     <span class="markerAdress">{{ address }}</span>
                 </li>
             </ul>
