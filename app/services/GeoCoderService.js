@@ -32,8 +32,6 @@ mapformanceApp.factory('geoCoderService', function($rootScope) {
             handleFailedRequest(status);
             return;
         }
-        console.log('status:', status);
-        console.log('results:', results);
         var firstResult = results[0];
         var query = firstResult.formatted_address;
         var lat = firstResult.geometry.location.ob;
@@ -57,4 +55,3 @@ mapformanceApp.factory('geoCoderService', function($rootScope) {
 
     return service;
 });
-console.log('GeoCoderService loaded');

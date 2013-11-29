@@ -11,4 +11,3 @@ mapformanceApp.controller('AddressController', function ($scope, geoCoderService
         }
     };
 });
-console.log('AddressController loaded');

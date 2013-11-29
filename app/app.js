@@ -5,4 +5,3 @@ function onGoogleReady() {
         angular.bootstrap(document.getElementById('rootElem'), ['mapformanceApp']);
     });
 }
-console.log('app.js loaded');
