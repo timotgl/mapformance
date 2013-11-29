@@ -1,6 +1,6 @@
 mapformanceApp.controller('MapController', function ($scope, addMarkerService) {
     google.maps.visualRefresh = true;
-    var mapContainer = document.getElementById('googleMap');
+    var mapContainer = document.getElementById('map');
     var map = new google.maps.Map(
         mapContainer,
         {
