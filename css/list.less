@@ -5,7 +5,7 @@ section#list {
     z-index: 999;
     bottom: 0px;
     left: 0px;
-    
+
     opacity: 0.7;
     background-color: @widgetBg;
 
@@ -17,7 +17,7 @@ section#list {
         margin: 0;
         padding: 10px;
         text-align: center;
-        
+
         a#showAllMarkers {
             display: inline-block;
             padding: 7px;
@@ -26,29 +26,29 @@ section#list {
             -moz-border-radius: @borderRadius;
             border-radius: @borderRadius;
         }
-        
+
         a#showAllMarkers:hover {
             background-color: @hoveredMarker;
         }
     }
-    
+
     ul#markerList {
         list-style-type: none;
         margin: 0;
         padding: 10px;
-        
+
         li {
             padding: 7px;
             cursor: pointer;
             -webkit-border-radius: @borderRadius;
             -moz-border-radius: @borderRadius;
             border-radius: @borderRadius;
-            
+
             span.markerAddress {
                 margin-left: 5px;
             }
         }
-        
+
         li:hover {
             background-color: @hoveredMarker;
         }
