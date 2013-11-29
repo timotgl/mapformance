@@ -1,13 +1,28 @@
 mapformanceApp.controller('MarkerListController', function ($scope, geoCoderService) {
-    this.total = 0;
-    
+
     // Store the address query of each marker in the order of their addition to the map.
-    var markers = [];
+    $scope.markers = [];
     
-    var listMarker = function () {
-        markers.push(geoCoderService.query);
-        console.log('markers in list:', markers);
+    // Store total number of markers in the list.
+    $scope.total = 0;
+    
+    $scope.listMarker = function () {
+        $scope.$apply(function () {
+            $scope.markers.push(geoCoderService.query);
+            $scope.total += 1;
+            console.log('markers in list:', $scope.markers); 
+        });
     };
     
-    $scope.$on('markerAdded', listMarker);
+    $scope.removeMarker = function (index) {
+        $scope.markers.splice(index, 1);
+        $scope.total -= 1;
+    };
+    
+    $scope.removeAllMarkers = function () {
+        $scope.markers = [];
+        $scope.total = 0;
+    };
+    
+    $scope.$on('markerAdded', $scope.listMarker);
 });

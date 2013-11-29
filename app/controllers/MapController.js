@@ -33,6 +33,7 @@ mapformanceApp.controller('MapController', function ($scope, geoCoderService, $r
         marker.setMap(map);
         markers[geoCoderService.query] = marker;
         console.log('markers on map:', markers);
+
         $rootScope.$broadcast('markerAdded');
     };
     
