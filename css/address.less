@@ -1,0 +1,32 @@
+// Color definitions
+@addressBg: rgb(132,230,255);
+@addMarkerFailure: rgb(230, 20, 20);
+@addMarkerFailureBg: rgb(60, 0, 0);
+
+section#address {
+    background-color: @addressBg;
+    float: left;
+    -webkit-border-bottom-right-radius: @borderRadius;
+    -moz-border-radius-bottomright: @borderRadius;
+    border-bottom-right-radius: @borderRadius;
+
+    p#addressForm {
+        margin: 0;
+        padding: 10px;
+
+        input#addressInput {
+            width: 400px;
+        }
+    }
+
+    p#markerStatus {
+        display: none;
+        margin: 0;
+        padding: 10px;
+        background-color: @addMarkerFailureBg;
+    }
+
+    p.addMarkerFailure {
+        color: @addMarkerFailure;
+    }
+}
