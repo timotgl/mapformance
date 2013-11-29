@@ -14,7 +14,7 @@
         <section id="address" ng-controller="AddressController as address">
             <p id="addressForm">
                 <label id="addressInputLabel" for="addressInput">Enter address:</label>
-                <input id="addressInput" type="text" placeholder="Rigaer Str. 4, 10247 Berlin" ng-model="address.query" required>
+                <input id="addressInput" type="text" placeholder="Rigaer Str. 4, 10247 Berlin" ng-model="address.query" ng-keypress="address.addMarkerForAddress($event)" required>
                 <button ng-click="address.addMarkerForAddress()">Add marker</button>
             </p>
             <p id="markerStatus" class="addMarkerFailure">
