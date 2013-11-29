@@ -17,7 +17,7 @@
                 <input id="addressInput" type="text" placeholder="Rigaer Str. 4, 10247 Berlin" ng-model="query" ng-keypress="addMarkerForAddress($event)" required>
                 <button ng-click="addMarkerForAddress()">Add marker</button>
             </p>
-            <p id="markerStatus" class="addMarkerFailure" ng-bind="status" ng-if="status.length >= 1"></p>
+            <p id="markerStatus" ng-bind="status" ng-if="status.length >= 1" ng-animate=" 'markerStatus' "></p>
         </section>
         <section id="list" ng-controller="MarkerListController">
             <p id="markerListForm" ng-if="total >= 2">

@@ -22,7 +22,16 @@ mapformanceApp.controller('AddressController', function ($scope, geoCoderService
     var showErrorMsg = function (event, msg) {
         $scope.$apply(function () {
             $scope.status = msg;
+            //$scope.status = '';
         });
+        setTimeout(
+            function() {
+                $scope.$apply(function () {
+                    $scope.status = '';
+                });
+            },
+            2000
+        );
     };
     
     $scope.$on('markerSelected', setQuery);
