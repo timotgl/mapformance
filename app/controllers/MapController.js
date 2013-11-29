@@ -27,8 +27,7 @@ mapformanceApp.controller('MapController', function ($scope, geoCoderService, $r
             position: new google.maps.LatLng(
                 geoCoderService.lat,
                 geoCoderService.lng
-            ),
-            title:"Hello World!"
+            )
         });
         marker.setMap(map);
         markers[geoCoderService.query] = marker;
