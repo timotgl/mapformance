@@ -26,5 +26,13 @@ mapformanceApp.controller('MarkerListController', function ($scope, geoCoderServ
         $rootScope.$broadcast('allMarkersRemoved');
     };
     
+    $scope.selectMarker = function (address) {
+        $rootScope.$broadcast('markerSelected', address);
+    };
+    
+    $scope.showAllMarkers = function () {
+        $rootScope.$broadcast('showAllMarkersRequested');
+    };
+
     $scope.$on('markerAdded', $scope.listMarker);
 });

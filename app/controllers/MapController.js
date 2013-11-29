@@ -32,6 +32,7 @@ mapformanceApp.controller('MapController', function ($scope, geoCoderService, $r
         });
         marker.setMap(map);
         markers[geoCoderService.query] = marker;
+        map.setCenter(marker.getPosition());
         console.log('markers on map:', markers);
 
         $rootScope.$broadcast('markerAdded');
@@ -50,7 +51,24 @@ mapformanceApp.controller('MapController', function ($scope, geoCoderService, $r
         markers = {};
     };
     
+    var centerOnMarker = function (event, address) {
+        marker = markers[address];
+        map.setCenter(marker.getPosition());
+    };
+    
+    var showAllMarkers = function (event) {
+        var bounds = new google.maps.LatLngBounds();
+        angular.forEach(markers, function(marker, address) {
+            if (marker.getVisible()) {
+                bounds.extend(marker.getPosition());
+            }
+        });
+        map.fitBounds(bounds);
+    };
+    
     $scope.$on('addressFound', addMarker);
     $scope.$on('markerRemoved', removeMarker);
     $scope.$on('allMarkersRemoved', removeAllMarkers);
+    $scope.$on('markerSelected', centerOnMarker);
+    $scope.$on('showAllMarkersRequested', showAllMarkers);
 });

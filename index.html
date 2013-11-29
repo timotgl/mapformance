@@ -17,20 +17,19 @@
                 <input id="addressInput" type="text" placeholder="Rigaer Str. 4, 10247 Berlin" ng-model="query" ng-keypress="addMarkerForAddress($event)" required>
                 <button ng-click="addMarkerForAddress()">Add marker</button>
             </p>
-            <p id="markerStatus" class="addMarkerFailure">
-                Failed to add marker: Reason
-            </p>
+            <p id="markerStatus" class="addMarkerFailure" ng-bind="status" ng-if="status.length >= 1"></p>
         </section>
-        <section id="list" ng-controller="MarkerListController as list">
+        <section id="list" ng-controller="MarkerListController">
             <p id="markerListForm" ng-if="total >= 2">
                 <button id="removeAllMarkers" ng-click="removeAllMarkers()">
                     Remove all <span id="totalNumMarkers" ng-bind="total"></span> Markers
                 </button>
+                <button id="showAllMarkers" ng-click="showAllMarkers()">Show all markers</button>
             </p>
             <ul id="markerList" ng-repeat="address in markers" ng-if="total >= 1">
                 <li>
                     <button class="removeMarker" ng-click="removeMarker($index, address)">Remove</button>
-                    <span class="markerAdress">{{ address }}</span>
+                    <span class="markerAdress" ng-click="selectMarker(address)">{{ address }}</span>
                 </li>
             </ul>
         </section>
