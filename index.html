@@ -1,23 +1,42 @@
 <!doctype html>
 <html id="rootElem"><!-- ng-app="mapformanceApp" -->
     <head>
+        <title>Mapformance</title>
         <script src="bower_components/angular/angular.js"></script>
         <script src="app/app.js"></script>
+        <script src="app/services/GeoCoderService.js"></script>
         <script src="app/controllers/AddressController.js"></script>
+        <script src="app/controllers/MarkerListController.js"></script>
         <script src="app/controllers/MapController.js"></script>
-        <link rel="stylesheet" href="css/mapformance.css">
+        <link rel="stylesheet" href="css/app.css">
     </head>
     <body>
-        <h1>Mapformance</h1>
-        <div class="component" ng-controller="AddressController as address">
-            <h2>Address</h2>
-            Query: <input type="text" ng-model="address.query" required>
-            <button class="btn" ng-click="address.searchForAddress()">Search</button>
-        </div>
-        <div class="component" ng-controller="MapController as map">
-            <h2>Map</h2>
-            <div id="googleMap" class="map-canvas"></div>
-        </div>
+        <section id="address" ng-controller="AddressController as address">
+            <p id="addressForm">
+                <label id="addressInputLabel" for="addressInput">Enter address:</label>
+                <input id="addressInput" type="text" placeholder="Rigaer Str. 4, 10247 Berlin" ng-model="address.query" required>
+                <button ng-click="address.addMarkerForAddress()">Add marker</button>
+            </p>
+            <p id="markerStatus" class="addMarkerFailure">
+                Failed to add marker: Reason
+            </p>
+        </section>
+        <section id="list">
+            <p id="markerListForm">
+                <button id="removeAllMarkers">
+                    Remove all <span id="totalNumMarkers">17</span> Markers
+                </button>
+            </p>
+            <ul id="markerList">
+                <li>
+                    <button class="removeMarker">Remove</button>
+                    <span class="markerAdress">Rigaer Str. 4, 10247 Berlin, Deutschland</span>
+                </li>
+            </ul>
+        </section>
+        <section id="map" ng-controller="MapController as map">
+            <div id="googleMap" ng-style="style()" resize></div>
+        </section>
         <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false&callback=onGoogleReady"></script>
     </body>
 </html>
