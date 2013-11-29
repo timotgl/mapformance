@@ -6,6 +6,14 @@ mapformanceApp.factory('geoCoderService', function($rootScope) {
     service.lat = 0;
     service.lng = 0;
     
+    var errorMsgs = {
+        ERROR            : 'There was a problem contacting the Google servers.',
+        INVALID_REQUEST  : 'The search request turned out to be invalid. Probably a bug in this app.',
+        OVER_QUERY_LIMIT : 'You sent way too many search requests in too short a period of time.',
+        REQUEST_DENIED	 : 'Google Maps rejected your search. Ouch.',
+        UNKNOWN_ERROR	 : 'A server error occurred. Please try again.',
+        ZERO_RESULTS	 : 'No results found for this address.'
+    };
 
     /**
      * 
@@ -21,7 +29,7 @@ mapformanceApp.factory('geoCoderService', function($rootScope) {
      * 
      */
     var handleFailedRequest = function (status) {
-        console.log('handleFailedRequest: status=', status);
+        $rootScope.$broadcast('addressNotFound', errorMsgs[status]);
     };
 
     /**
