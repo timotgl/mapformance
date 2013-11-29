@@ -1,14 +1,18 @@
 @listBg: rgb(202,249,253);
 
 section#list {
-    background-color: @listBg;
-    float: left;
-    clear: left;
-    width: 400px;
-    -webkit-border-bottom-right-radius: @borderRadius;
-    -moz-border-radius-bottomright: @borderRadius;
-    border-bottom-right-radius: @borderRadius;
+    position: fixed;
+    z-index: 999;
+    bottom: 0px;
+    left: 0px;
     
+    opacity: 0.7;
+    background-color: @listBg;
+
+    -webkit-border-top-right-radius: @borderRadius;
+    -moz-border-radius-topright: @borderRadius;
+    border-top-right-radius: @borderRadius;
+
     p#markerListForm {
         margin: 0;
         padding: 10px;
@@ -19,4 +23,8 @@ section#list {
         margin: 0;
         padding: 10px;
     }
+}
+
+section#list:hover {
+    opacity: 1;
 }
