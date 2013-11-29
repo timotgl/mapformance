@@ -21,10 +21,10 @@
                 Failed to add marker: Reason
             </p>
         </section>
-        <section id="list">
+        <section id="list" ng-controller="MarkerListController as list">
             <p id="markerListForm">
                 <button id="removeAllMarkers">
-                    Remove all <span id="totalNumMarkers">17</span> Markers
+                    Remove all <span id="totalNumMarkers" ng-bind="list.total"></span> Markers
                 </button>
             </p>
             <ul id="markerList">
