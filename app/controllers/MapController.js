@@ -1,4 +1,6 @@
-mapformanceApp.controller('MapController', function ($scope, addMarkerService) {
+mapformanceApp.controller('MapController', function ($scope, geoCoderService) {
+    
+    // Initialize the google map
     google.maps.visualRefresh = true;
     var mapContainer = document.getElementById('map');
     var map = new google.maps.Map(
@@ -9,17 +11,24 @@ mapformanceApp.controller('MapController', function ($scope, addMarkerService) {
             mapTypeId : google.maps.MapTypeId.ROADMAP
         }
     );
-    $scope.$on('markerAdded', function() {
-        console.log('query=', addMarkerService.query);
-        console.log('lat=', addMarkerService.lat);
-        console.log('long=', addMarkerService.long);
+
+    /**
+     * Add a marker to the map when an address search was successful.
+     */
+    var addMarker = function () {
+        console.log('query=', geoCoderService.query);
+        console.log('lat=', geoCoderService.lat);
+        console.log('lng=', geoCoderService.lng);
         var marker = new google.maps.Marker({
             position: new google.maps.LatLng(
-                addMarkerService.lat,
-                addMarkerService.long
+                geoCoderService.lat,
+                geoCoderService.lng
             ),
             title:"Hello World!"
         });
         marker.setMap(map);
-    });
+    };
+    
+    $scope.$on('addressFound', addMarker);
 });
+console.log('MapController loaded');
