@@ -46,8 +46,8 @@ mapformanceApp.factory('geoCoderService', function($rootScope) {
 
         var firstResult = results[0],
             query = firstResult.formatted_address,
-            lat = firstResult.geometry.location.ob,
-            lng = firstResult.geometry.location.pb;
+            lat = firstResult.geometry.location.lat(),
+            lng = firstResult.geometry.location.lng();
 
         saveResult(query, lat, lng);
     };
